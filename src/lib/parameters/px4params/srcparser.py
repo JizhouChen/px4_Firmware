@@ -197,7 +197,7 @@ class SourceParser(object):
     def __init__(self):
         self.param_groups = {}
 
-    def Parse(self, contents):
+    def Parse(self, contents, path):
         """
         Incrementally parse program contents and append all found parameters
         to the list.
@@ -307,7 +307,7 @@ class SourceParser(object):
                         if short_desc is not None:
                             param.SetField("short_desc", self.re_remove_dots.sub('', short_desc))
                         if long_desc is not None:
-                            long_desc = self.re_remove_carriage_return.sub(' ', long_desc)
+                            long_desc = self.re_remove_carriage_return.sub(' ', path+'---'+long_desc)
                             param.SetField("long_desc", long_desc)
                         for tag in tags:
                             if tag == "group":

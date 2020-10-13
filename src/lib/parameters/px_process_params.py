@@ -126,6 +126,9 @@ def main():
     # Scan directories, and parse the files
     if (args.verbose):
         print("Scanning source path " + str(args.src_path))
+    '''f = open("src_path.txt", "a")
+    f.write(str(args.src_path)+'\n\n@@@@@@@@@@')
+    f.close()'''
 
     if not scanner.ScanDir(args.src_path, parser):
         sys.exit(1)
